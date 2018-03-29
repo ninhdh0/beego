@@ -170,6 +170,7 @@ func (p *ControllerRegister) addWithMethodParams(pattern string, c ControllerInt
 			}
 			comma := strings.Split(colon[0], ",")
 			for _, m := range comma {
+				fmt.Println(m, colon[1])
 				if m == "*" || HTTPMETHOD[strings.ToUpper(m)] {
 					if val := reflectVal.MethodByName(colon[1]); val.IsValid() {
 						methods[strings.ToUpper(m)] = colon[1]
